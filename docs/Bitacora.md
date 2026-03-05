@@ -18,22 +18,23 @@ Cuando acabes no olvides ayudarnos evaluando tu ⭐[experiencia](https://forms.o
 
 ### 1.1. Información de la aplicación
 
+DNS: https://david-palacios-p-app.obs-stack.eci-idp.click/api/ 
+
 ### 1.2. Verificación del despliegue
 
 **¿La aplicación se desplegó correctamente?** 
 
-- [ ] Sí
+- [ X ] Sí
 - [ ] No
 
 **Captura de pantalla de la aplicación funcionando:**
 
-> _[Inserta aquí la imagen de la aplicación corriendo en /api/]_
+![AplicacionFuncional](img/AplicacionFuncional.png)
 
 ### 1.3. Observaciones y problemas encontrados (opcional)
 
 ```
-
-
+El principal problema fue que abri la aplicación cuando se encontraba en construcción asi que se demoro un poco en "funcionar" en mi dispositivo. Sin embargo, fue cuestión de tiempo.
 
 ```
 
@@ -45,10 +46,10 @@ Cuando acabes no olvides ayudarnos evaluando tu ⭐[experiencia](https://forms.o
 
 **Endpoints probados:**
 
-- [ ] `GET /api/`
-- [ ] `POST /api/shorten`
-- [ ] `GET /api/{shortCode}`
-- [ ] `GET /api/urls`
+- [ X ] `GET /api/`
+- [ X ] `POST /api/shorten`
+- [ X ] `GET /api/{shortCode}`
+- [ X ] `GET /api/urls`
 
 
 ### 2.0.2. Análisis de dos métricas relevantes
@@ -57,40 +58,33 @@ Cuando acabes no olvides ayudarnos evaluando tu ⭐[experiencia](https://forms.o
 
 **Nombre de la métrica:**  
 ```
-
+ Uso de la CPU
 ```
 
 **Tipo de métrica:** 
 - [ ] Counter
-- [ ] Gauge 
+- [ X ] Gauge 
 - [ ] Histogram 
 - [ ] Summary
 
 **Descripción de qué información aporta:**
 ```
-
-
-
+Como su nombre lo indica, esta metrica nos indica el porcentaje de la CPU que esta siendo utilizado, esto nos brinda la carga que esta teniendo el computador.
 ```
 
 **Relación con otras métricas (si aplica):**
 ```
-Ejemplo: Un aumento en peticiones HTTP podría influir en el uso de CPU
-
-
+De acuerdo al nivel de uso de la CPU podemos llegar a tener una estimación sobre la cantidad de peticiones(aunque no es seguro). Esta metrica nos puede dar nociones de como se esta comportando el sistema pero no la razón exacta.
 ```
 
 **¿En que escenarios puede ayudar esta métrica?**
 ```
-
-
-
+Nos diria más cuando el sistema se encuentre lento, porque podia indicarnos una de las raxones de falla.
 ```
 
 **¿Qué etiquetas (labels) se utilizan para agrupar los datos?**
 ```
-Ejemplo: uri, method, status, instance, job, etc.
-
+Nignuna.
 
 
 ```
@@ -101,40 +95,36 @@ Ejemplo: uri, method, status, instance, job, etc.
 
 **Nombre de la métrica:**  
 ```
-
+Codigos de estado
 ```
 
 **Tipo de métrica:** 
 - [ ] Counter
 - [ ] Gauge 
 - [ ] Histogram 
-- [ ] Summary
+- [ X ] Summary
 
 **Descripción de qué información aporta:**
 ```
-
+Nos informa cual es el estado de las diferentes peticiones a los diferentes endpoints de nuestro sistema. Y a su vez, la razón del resultado.
 
 
 ```
 
 **Relación con otras métricas (si aplica):**
 ```
-Ejemplo: Un aumento en peticiones HTTP podría influir en el uso de CPU
-
-
+Tal vez con la latencia o duración de las solicitudes, ya que podriamos ver que los errores 500 tienen una latencia mayor.
 ```
 
 **¿En que escenarios puede ayudar esta métrica?**
 ```
-
-
+Cuando ocurran diferentes errores en los endpoints para saber la razón.
 
 ```
 
 **¿Qué etiquetas (labels) se utilizan para agrupar los datos?**
 ```
-Ejemplo: uri, method, status, instance, job, etc.
-
+exception, method, outcome, status y uri.
 
 
 ```
