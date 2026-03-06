@@ -146,24 +146,24 @@ exception, method, outcome, status y uri.
 
 **Propósito:**
 ```
-¿Qué quieres analizar o mostrar? Menciona qué métrica(s) vas a usar
+Quiero analizar el estado de la JVM con respecto a los hilos que se encuentran en el sistema, para esto, usaremos "# TYPE jvm_threads_states_threads gauge". Esto para poder ver cuestiones de rendimiento y manejo de los procesos.
+
 
 
 ```
 
 **Título del panel:**
 ```
-
+Hilos en diferentes estados en la JVM
 ```
 
 **Consulta (PromQL o LogQL):**
 ```
-Consejo: Si usaste la interfaz de Grafana para crear el panel, puedes copiar la consulta que se muestra en la caja de texto de la seccion Code.
-
+jvm_threads_states_threads
 ```
 
 **Tipo de visualización:** 
-- [ ] Time series
+- [ X ] Time series
 - [ ] Gauge
 - [ ] Bar chart
 - [ ] Stat
@@ -178,15 +178,13 @@ Consejo: Si usaste la interfaz de Grafana para crear el panel, puedes copiar la 
 
 **Captura de pantalla:**
 
-> _[Inserta aquí la imagen del panel]_
+![PanelAdicional1](img/PanelAdicional1.png)
 
 **Análisis (2-3 frases):**
 ```
 ¿Qué conclusiones o patrones observas?
-
-
-
 ```
+La mayoria de los hilos se encuentra en estado runneable y waiting, aunque tambien existen algunos en estado blocked.
 
 ---
 
@@ -194,24 +192,24 @@ Consejo: Si usaste la interfaz de Grafana para crear el panel, puedes copiar la 
 
 **Propósito:**
 ```
-¿Qué quieres analizar o mostrar? Menciona qué métrica(s) vas a mostrar
+Vamos a observar cual es el endpoint (especificamente un request) que mas tiempo tardo en realizarse. Basicamente la latencia de los request, a traves de # HELP http_server_requests_seconds_max  
+# TYPE http_server_requests_seconds_max gauge
 
 
 ```
 
 **Título del panel:**
 ```
-
+Tiempo de Request.
 ```
 
 **Consulta (PromQL o LogQL):**
 ```
-Consejo: Si usaste la interfaz de Grafana para crear el panel, puedes copiar la consulta que se muestra en la caja de texto de la seccion Code.
-
+max by (uri, method) (http_server_requests_seconds_max)
 ```
 
 **Tipo de visualización:** 
-- [ ] Time series
+- [X ] Time series
 - [ ] Gauge
 - [ ] Bar chart
 - [ ] Stat
@@ -226,24 +224,20 @@ Consejo: Si usaste la interfaz de Grafana para crear el panel, puedes copiar la 
 
 **Captura de pantalla:**
 
-> _[Inserta aquí la imagen del panel]_
-
+![PanelAdicional2](img/PanelAdicional2.png)
 **Análisis (2-3 frases):**
 ```
 ¿Qué conclusiones o patrones observas?
 
-
+En general, los tiempos de demora estan bastante bien, ya que los mas lentos para cada endpoint son de 0.5, por lo tanto, es un sistema estable.
 
 ```
-
 ---
 
 ### 2.1.3. Análisis final del dashboard
 
 **¿Qué otros datos te gustaría visualizar si tuvieras más información disponible?**
 ```
-
-
 
 ```
 
